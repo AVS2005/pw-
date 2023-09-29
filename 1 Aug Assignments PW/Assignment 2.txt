@@ -1,0 +1,177 @@
+Q1)Given a number, print its binary representation. [easy]
+Input 1: number = 5
+Output 1: 101
+Input 2: number = 10
+Output 2: 1010
+
+ANS:- 
+		public class GFG
+{
+static void bin(long n)
+{
+	long i;
+	System.out.print("0");
+	for (i = 1 << 30; i > 0; i = i / 2)
+	{
+	if((n & i) != 0)
+	{
+		System.out.print("1");
+	}
+	else
+	{
+		System.out.print("0");
+	}
+	}
+}
+
+// Driver code
+public static void main(String[] args)
+{
+	bin(7);
+	System.out.println();
+	bin(4);
+}
+}
+
+Problem 2: given a number ‘n’, predict whether it is a power of two or not. [medium]
+Input 1: n = 15
+Output 1: False
+Input 2: n = 32
+Output 2: True
+ANS:-
+		// Java program to find whether
+// a no is power of two
+import java.io.*;
+
+class GFG {
+
+	// Function to check if
+	// x is power of 2
+	static boolean isPowerOfTwo(int n)
+	{
+		if (n == 0)
+			return false;
+
+		while (n != 1) {
+			if (n % 2 != 0)
+				return false;
+			n = n / 2;
+		}
+		return true;
+	}
+
+	// Driver code
+	public static void main(String args[])
+	{
+
+		// Function call
+		if (isPowerOfTwo(15))
+			System.out.println("Yes");
+		else
+			System.out.println("No");
+
+		if (isPowerOfTwo(32))
+			System.out.println("Yes");
+		else
+			System.out.println("No");
+	}
+}
+
+Q3. Problem 1: Given a number. Using bit manipulation, check whether it is odd or even.
+Input 8, Even
+3, False
+Ans:-
+		// Java program to check for even or odd
+// using Bitwise XOR operator
+class GFG {
+
+	// Returns true if n is even, else odd
+	static boolean isEven(int n)
+	{
+
+		// n^1 is n+1, then even, else odd
+		if ((n ^ 1) == (n + 1))
+			return true;
+		else
+			return false;
+	}
+
+	// Driver code
+	public static void main(String[] args)
+	{
+		int n = 100;
+		System.out.print(isEven(n) == true ? "Even"
+										: "Odd");
+	}
+}
+
+
+Q4. Given a number, count the number of set bits in that number without using an extra space.
+Note : bit ‘1’ is also known as set bit.
+Ans:-
+		// Java program to Count set
+// bits in an integer
+import java.io.*;
+
+class countSetBits {
+	/* Function to get no of set
+	bits in binary representation
+	of positive integer n */
+	static int countSetBits(int n)
+	{
+		int count = 0;
+		while (n > 0) {
+			count += n & 1;
+			n >>= 1;
+		}
+		return count;
+	}
+
+	// driver program
+	public static void main(String args[])
+	{
+		int i = 9;
+		System.out.println(countSetBits(i));
+	}
+}
+
+Q5. Given an integer array, duplicates are present in it in a way that all duplicates appear an even
+number of times except one which appears an odd number of times. Find that odd appearing
+element in linear time and without using any extra memory.
+For example,
+Input : arr[] = [4, 3, 6, 2, 6, 4, 2, 3, 4, 3, 3]
+Output : The odd occurring element is 4.
+Ans:-
+		// Java program to find the element occurring
+// odd number of times
+class OddOccurrence {
+	
+	// function to find the element occurring odd
+	// number of times
+	static int getOddOccurrence(int arr[], int arr_size)
+	{
+		int i;
+		for (i = 0; i < arr_size; i++) {
+			int count = 0;
+			for (int j = 0; j < arr_size; j++) {
+				if (arr[i] == arr[j])
+					count++;
+			}
+			if (count % 2 != 0)
+				return arr[i];
+		}
+		return -1;
+	}
+	
+	// driver code
+	public static void main(String[] args)
+	{
+		int arr[] = new int[]{ 4, 3, 6, 2, 6, 4, 2, 3, 4, 3, 3 };
+		int n = arr.length;
+		System.out.println(getOddOccurrence(arr, n));
+	}
+}
+// 
+
+
+

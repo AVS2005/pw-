@@ -1,0 +1,85 @@
+Q1. Write a program to sort an array in descending order using bubble sort.
+Input Array {3,5,1,6,0}
+Output Array: {6, 5, 3, 1, 0}
+Ans:-
+	// Bubble sort in Java
+import java.util.Arrays;
+class LFC {
+void bubble_Sort(int array[]) {
+int size = array.length;
+for (int i = 0; i < size - 1; i++){
+for (int j = 0; j < size - i - 1; j++){
+
+if (array[j] < array[j + 1]) {
+int temp = array[j];
+array[j] = array[j + 1];
+array[j + 1] = temp;
+}
+}
+public static void main(String args[]) {
+int[] number = {3,5,1,6,0};
+LFC bs = new LFC();
+bs.bubble_Sort(number);
+System.out.println("Sorted Array :");
+System.out.println(Arrays.toString(number));
+}
+}
+
+Q2. WAP to sort an array in descending order using selection sort
+Input Array {3,5,1,6,0}
+Output Array: {6, 5, 3, 1, 0}
+Ans:-
+		// Selection sort in Java
+public class LFC {
+public static void main(String args[]){
+int arr[] = {3,5,1,6,0};
+int size = arr.length;
+for (int i = 0 ;i< size-1; i++){
+int min = i;
+for (int j = i+1; j< size; j++){
+if (arr[j] > arr[min]){
+min = j;
+}
+}
+int temp = arr[min];
+arr[min] = arr[i];
+arr[i] = temp;
+}
+for (int i = 0 ;i< size; i++){
+System.out.print(" "+arr[i]);
+}
+}  
+}
+
+Q3. WAP to sort an array in decreasing order using insertion sort
+Input Array {3,5,1,6,0}
+Output Array: {6, 5, 3, 1, 0}
+Ans:-
+		// Insertion sort in Java
+import java.util.Arrays;
+class LFC {
+void insertion_sort(int arr[]) {
+int size = arr.length;
+for (int step = 1; step < size; step++) {
+int key = arr[step];
+int j = step - 1;
+while (j >= 0 && key > arr[j]) {
+// For ascending order, change key> arr[j] to key< arr[j].
+arr[j + 1] = arr[j];
+--j;
+}
+arr[j + 1] = key;
+}
+}
+public static void main(String args[]) {
+int[] arr = {3,5,1,6,0};
+LFC is = new LFC();
+is.insertion_sort(arr);
+System.out.println("Sorted Array in descending Order: ");
+System.out.println(Arrays.toString(arr));
+}
+}
+
+Q4. Find out how many pass would be required to sort the following array in decreasing order
+using bubble sort
+Input Array {3,5,1,6,0}
